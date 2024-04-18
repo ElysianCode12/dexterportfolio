@@ -14,7 +14,7 @@ export default function Home() {
             <h2 class="text-xl font-medium text-gray-600">Software Developer</h2>
           </div>
           <div>
-            <img src="dexter.png" alt="Description of your image" class="w-36 h-auto rounded-full"></img>
+            <img src="dexter.jpg" alt="dex<3" class="w-36 h-auto rounded-full"></img>
           </div>
         </div>
       </div>
