@@ -1,3 +1,4 @@
+import Link from "next/link";
 import Image from "next/image";
 
 export default function Home() {
@@ -23,16 +24,20 @@ export default function Home() {
         <h2 class="text-xl font-medium p-12">Projects</h2>
       </div>
 
-      <div class="flex justify-center space-x-4">
-        <div class="border rounded-lg p-9 border-black flex flex-col items-center">
+      <div class="flex justify-center space-x-6">
+
+        <div class="border rounded-lg p-9 border-black flex flex-col items-center hover:bg-gray-500">
           <img src="coin.jpg" class="w-40 h-auto rounded-lg"></img>
           <p>Heads or Tails Game</p>
         </div>
 
-        <div class="border rounded-lg p-9 border-black flex flex-col items-center">
-          <img src="Wikipedia-logo-v2.svg" class="w-40 h-auto rounded-lg"></img>
-          <p>Fact Generator</p>
-        </div>
+        <Link href={`/fact-generator`}>
+          <div class="border rounded-lg p-9 border-black flex flex-col items-center hover:bg-gray-500">
+            <img src="Wikipedia-logo-v2.svg" class="w-40 h-auto rounded-lg"></img>
+            <p>Fact Generator</p>
+          </div>
+        </Link>
+
       </div>
     </main>
   );
