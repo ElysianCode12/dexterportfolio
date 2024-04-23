@@ -26,10 +26,12 @@ export default function Home() {
 
       <div class="flex justify-center space-x-6">
 
-        <div class="border rounded-lg p-9 border-black flex flex-col items-center hover:bg-gray-500">
-          <img src="coin.jpg" class="w-40 h-auto rounded-lg"></img>
-          <p>Heads or Tails Game</p>
-        </div>
+        <Link href={`/headsortails`}>
+          <div class="border rounded-lg p-9 border-black flex flex-col items-center hover:bg-gray-500">
+            <img src="coin.jpg" class="w-40 h-auto rounded-lg"></img>
+            <p>Heads or Tails Game</p>
+          </div>
+        </Link>
 
         <Link href={`/fact-generator`}>
           <div class="border rounded-lg p-9 border-black flex flex-col items-center hover:bg-gray-500">
