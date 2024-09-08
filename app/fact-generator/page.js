@@ -31,13 +31,13 @@ export default function Page() {
         <main className="flex flex-col items-center justify-between p-24">
             <div>
                 <div className="relative flex place-items-center border rounded-lg p-4 border-black">
-                    <div class="max-w-screen-lg mx-auto flex items-center">
-                        <div class="mr-8">
+                    <div className="max-w-screen-lg mx-auto flex items-center">
+                        <div className="mr-8">
                             <h1 className="text-4xl font-bold mb-6">Fact Generator</h1>
                             <p>Powered by Wikipedia API</p>
                         </div>
                         <div>
-                            <img src="Wikipedia-logo-v2.svg" class="w-36 h-auto rounded-full"></img>
+                            <img src="Wikipedia-logo-v2.svg" className="w-36 h-auto rounded-full"></img>
                         </div>
                     </div>
                 </div>
@@ -47,7 +47,7 @@ export default function Page() {
                 ) : (
                     <div>
                         <p className="p-6">{randomFact}</p>
-                        <div class="flex justify-center">
+                        <div className="flex justify-center">
                             {factUrl && (
                                 <a href={factUrl} target="_blank" rel="noopener noreferrer">
                                     <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mr-4">
@@ -62,7 +62,7 @@ export default function Page() {
                     </div>
                 )}
             </div>
-            <div class="fixed bottom-8">
+            <div className="fixed bottom-8">
                 <Link href="/">
                     <p className="text-blue-500 hover:text-blue-700 py-100">Go back to home</p>
                 </Link>

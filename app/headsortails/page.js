@@ -76,15 +76,15 @@ export default function Page() {
                 )}
             </div>
             
-            <div class="flex justify-center m-1">
+            <div className="flex justify-center m-1">
                 <p className="text-xl font-semibold">Current Money: ${currentMoney}</p>
             </div>
             
-            <div class="flex justify-center m-1">
+            <div className="flex justify-center m-1">
                 <p className="text-xl font-semibold">High Score: ${highScore}</p>
             </div>
 
-            <div class="fixed bottom-8">
+            <div className="fixed bottom-8">
                 <Link href="/">
                     <p className="text-blue-500 hover:text-blue-700 py-100">Go back to home</p>
                 </Link>
