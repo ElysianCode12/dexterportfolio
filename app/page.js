@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import Navbar from "./nav-bar/navbar";
 
 export default function Home() {
@@ -11,7 +12,7 @@ export default function Home() {
         <div className="max-w-6xl mx-auto flex items-center justify-between">
           <div className="max-w-2xl">
             <h1 className="text-5xl font-bold mb-6">
-              Hi, I'm Dexter Balino
+              Hi, I&apos;m Dexter Balino
               <span className="block text-gray-600 mt-2">Software Developer</span>
             </h1>
             <p className="text-xl text-gray-600 mb-8">
@@ -27,10 +28,12 @@ export default function Home() {
             </div>
           </div>
           <div className="hidden md:block">
-            <img 
+            <Image 
               src="/dexter.jpg" 
               alt="Dexter Balino" 
-              className="w-64 h-64 rounded-full object-cover shadow-lg"
+              width={256}
+              height={256}
+              className="rounded-full object-cover shadow-lg"
             />
           </div>
         </div>
@@ -44,10 +47,11 @@ export default function Home() {
             <Link href="/headsortails">
               <div className="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition group">
                 <div className="relative h-48">
-                  <img 
+                  <Image 
                     src="/coin.jpg" 
                     alt="Heads or Tails Game" 
-                    className="w-full h-full object-cover group-hover:scale-105 transition"
+                    fill
+                    className="object-cover group-hover:scale-105 transition"
                   />
                 </div>
                 <div className="p-6">
@@ -62,10 +66,11 @@ export default function Home() {
             <Link href="/fact-generator">
               <div className="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition group">
                 <div className="relative h-48">
-                  <img 
+                  <Image 
                     src="/Wikipedia-logo-v2.svg" 
                     alt="Fact Generator" 
-                    className="w-full h-full object-cover group-hover:scale-105 transition"
+                    fill
+                    className="object-cover group-hover:scale-105 transition"
                   />
                 </div>
                 <div className="p-6">
@@ -83,9 +88,9 @@ export default function Home() {
       {/* Contact Section */}
       <section id="contact" className="py-20 px-4">
         <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-3xl font-bold mb-6">Let's Connect</h2>
+          <h2 className="text-3xl font-bold mb-6">Let&apos;s Connect</h2>
           <p className="text-xl text-gray-600 mb-8">
-            I'm always interested in hearing about new projects and opportunities.
+            I&apos;m always interested in hearing about new projects and opportunities.
           </p>
           <a 
             href="mailto:balino_dexter@yahoo.com" 
