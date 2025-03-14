@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useState } from "react";
+import Navbar from "../nav-bar/navbar";
 
 export default function Page() {
     const [currentMoney, setCurrentMoney] = useState(100); // Initial money set to 100
@@ -36,58 +37,59 @@ export default function Page() {
     };
 
     return (
-        <main className="flex flex-col items-center justify-between p-24">
-            <div>
+        <main className="flex flex-col items-center min-h-screen">
+            <Navbar />
+            <div className="flex-1 flex flex-col items-center justify-center p-8">
                 <h1 className="text-4xl font-bold mb-4">Heads Or Tails Game</h1>
-            </div>
 
-            <div>
-                <img src="coin.jpg" className="w-40 h-auto rounded-lg mb-5"></img>
-            </div>
+                <div>
+                    <img src="coin.jpg" className="w-40 h-auto rounded-lg mb-5"></img>
+                </div>
 
-            <div className="flex items-center mb-4">
-                <select 
-                    value={selectedOption} 
-                    onChange={handleSelectChange} 
-                    className="mr-2 px-3 py-2 border rounded-md focus:outline-none focus:ring focus:border-blue-300"
-                >
-                    <option value="Heads">Heads</option>
-                    <option value="Tails">Tails</option>
-                </select>
-                <input 
-                    id="betAmount" 
-                    type="number" 
-                    className="px-3 py-2 border rounded-md focus:outline-none focus:ring focus:border-blue-300" 
-                    placeholder="Enter a number"
-                />
-                <button 
-                    onClick={handleBet} 
-                    className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
-                >
-                    Bet!
-                </button>
-            </div>
+                <div className="flex items-center mb-4">
+                    <select 
+                        value={selectedOption} 
+                        onChange={handleSelectChange} 
+                        className="mr-2 px-3 py-2 border rounded-md focus:outline-none focus:ring focus:border-blue-300"
+                    >
+                        <option value="Heads">Heads</option>
+                        <option value="Tails">Tails</option>
+                    </select>
+                    <input 
+                        id="betAmount" 
+                        type="number" 
+                        className="px-3 py-2 border rounded-md focus:outline-none focus:ring focus:border-blue-300" 
+                        placeholder="Enter a number"
+                    />
+                    <button 
+                        onClick={handleBet} 
+                        className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+                    >
+                        Bet!
+                    </button>
+                </div>
 
-            <div>
-                {result && (
-                    <p className={`text-xl font-semibold mb-2 ${selectedOption === result ? 'text-green-500' : 'text-red-500'}`}>
-                        {selectedOption === result ? 'You won!' : 'You lost!'}
-                    </p>
-                )}
-            </div>
-            
-            <div className="flex justify-center m-1">
-                <p className="text-xl font-semibold">Current Money: ${currentMoney}</p>
-            </div>
-            
-            <div className="flex justify-center m-1">
-                <p className="text-xl font-semibold">High Score: ${highScore}</p>
-            </div>
+                <div>
+                    {result && (
+                        <p className={`text-xl font-semibold mb-2 ${selectedOption === result ? 'text-green-500' : 'text-red-500'}`}>
+                            {selectedOption === result ? 'You won!' : 'You lost!'}
+                        </p>
+                    )}
+                </div>
+                
+                <div className="flex justify-center m-1">
+                    <p className="text-xl font-semibold">Current Money: ${currentMoney}</p>
+                </div>
+                
+                <div className="flex justify-center m-1">
+                    <p className="text-xl font-semibold">High Score: ${highScore}</p>
+                </div>
 
-            <div className="fixed bottom-8">
-                <Link href="/">
-                    <p className="text-blue-500 hover:text-blue-700 py-100">Go back to home</p>
-                </Link>
+                <div className="fixed bottom-8">
+                    <Link href="/">
+                        <p className="text-blue-500 hover:text-blue-700 py-100">Go back to home</p>
+                    </Link>
+                </div>
             </div>
         </main>
     );

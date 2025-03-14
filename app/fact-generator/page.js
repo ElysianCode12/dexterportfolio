@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useState, useEffect } from "react";
 import axios from "axios";
+import Navbar from "../nav-bar/navbar";
 
 export default function Page() {
     const [randomFact, setRandomFact] = useState("");
@@ -28,8 +29,9 @@ export default function Page() {
     };
 
     return (
-        <main className="flex flex-col items-center justify-between p-24">
-            <div>
+        <main>
+            <Navbar />
+            <div className="flex flex-col items-center justify-between p-24">
                 <div className="relative flex place-items-center border rounded-lg p-4 border-black">
                     <div className="max-w-screen-lg mx-auto flex items-center">
                         <div className="mr-8">

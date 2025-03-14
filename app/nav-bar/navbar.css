@@ -1,0 +1,44 @@
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;  /* Increased horizontal padding */
+    width: 100%;  /* Ensure navbar takes full width */
+    background-color: #f0f0f0;
+}
+
+.navbar-left {
+    flex: 1;  /* Takes up available space on the left */
+    display: flex;
+    align-items: center;
+    font-weight: bold;
+    font-size: 1.2rem;
+    
+
+}
+
+.navbar-left ul {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    gap: 2rem;  /* Adds space between list items */
+}
+
+.navbar-center li {
+    cursor: pointer;
+}
+
+.navbar-right {
+    flex: 1;  /* Takes up available space on the right */
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    justify-content: flex-end;  /* Push content to the right */
+}
+
+.linkedin-icon, .github-icon {
+    width: 24px;
+    height: 24px;
+    margin: 0.2rem;
+}

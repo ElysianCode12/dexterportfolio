@@ -1,46 +1,100 @@
 import Link from "next/link";
-import Image from "next/image";
+import Navbar from "./nav-bar/navbar";
 
 export default function Home() {
   return (
-    <main className="flex flex-col items-center justify-between p-24">
-      <div>
-        <p class="p-6">Welcome to my page!</p>
-      </div>
-
-      <div className="relative flex place-items-center border rounded-lg p-4 border-black">
-        <div className="max-w-screen-lg mx-auto flex items-center">
-          <div className="mr-8">
-            <h1 className="text-4xl font-bold mb-4">Dexter Balino</h1>
-            <h2 className="text-xl font-medium text-gray-600">Software Developer</h2>
+    <main className="min-h-screen bg-white">
+      <Navbar />
+      
+      {/* Hero Section */}
+      <section className="py-20 px-4">
+        <div className="max-w-6xl mx-auto flex items-center justify-between">
+          <div className="max-w-2xl">
+            <h1 className="text-5xl font-bold mb-6">
+              Hi, I'm Dexter Balino
+              <span className="block text-gray-600 mt-2">Software Developer</span>
+            </h1>
+            <p className="text-xl text-gray-600 mb-8">
+              I build modern applications with a focus on clean code and great user experience.
+            </p>
+            <div className="space-x-4">
+              <a href="#projects" className="bg-black text-white px-6 py-3 rounded-lg hover:bg-gray-800 transition">
+                View My Work
+              </a>
+              <a href="#contact" className="border border-black px-6 py-3 rounded-lg hover:bg-gray-100 transition">
+                Get in Touch
+              </a>
+            </div>
           </div>
-          <div>
-            <img src="dexter.jpg" alt="dex<3" className="w-36 h-auto rounded-full"></img>
+          <div className="hidden md:block">
+            <img 
+              src="/dexter.jpg" 
+              alt="Dexter Balino" 
+              className="w-64 h-64 rounded-full object-cover shadow-lg"
+            />
           </div>
         </div>
-      </div>
+      </section>
 
-      <div>
-        <h2 className="text-xl font-medium p-12">Projects</h2>
-      </div>
+      {/* Projects Section */}
+      <section id="projects" className="py-20 px-4 bg-gray-50">
+        <div className="max-w-6xl mx-auto">
+          <h2 className="text-3xl font-bold mb-12 text-center">Featured Projects</h2>
+          <div className="grid md:grid-cols-2 gap-8">
+            <Link href="/headsortails">
+              <div className="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition group">
+                <div className="relative h-48">
+                  <img 
+                    src="/coin.jpg" 
+                    alt="Heads or Tails Game" 
+                    className="w-full h-full object-cover group-hover:scale-105 transition"
+                  />
+                </div>
+                <div className="p-6">
+                  <h3 className="text-xl font-semibold mb-2">Heads or Tails Game</h3>
+                  <p className="text-gray-600">
+                    An interactive game built with modern web technologies.
+                  </p>
+                </div>
+              </div>
+            </Link>
 
-      <div className="flex justify-center space-x-6">
-
-        <Link href={`/headsortails`}>
-          <div className="border rounded-lg p-9 border-black flex flex-col items-center hover:bg-gray-500">
-            <img src="coin.jpg" class="w-40 h-auto rounded-lg"></img>
-            <p>Heads or Tails Game</p>
+            <Link href="/fact-generator">
+              <div className="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition group">
+                <div className="relative h-48">
+                  <img 
+                    src="/Wikipedia-logo-v2.svg" 
+                    alt="Fact Generator" 
+                    className="w-full h-full object-cover group-hover:scale-105 transition"
+                  />
+                </div>
+                <div className="p-6">
+                  <h3 className="text-xl font-semibold mb-2">Fact Generator</h3>
+                  <p className="text-gray-600">
+                    A tool that generates interesting facts using wikipedia api.
+                  </p>
+                </div>
+              </div>
+            </Link>
           </div>
-        </Link>
+        </div>
+      </section>
 
-        <Link href={`/fact-generator`}>
-          <div className="border rounded-lg p-9 border-black flex flex-col items-center hover:bg-gray-500">
-            <img src="Wikipedia-logo-v2.svg" className="w-40 h-auto rounded-lg"></img>
-            <p>Fact Generator</p>
-          </div>
-        </Link>
-
-      </div>
+      {/* Contact Section */}
+      <section id="contact" className="py-20 px-4">
+        <div className="max-w-4xl mx-auto text-center">
+          <h2 className="text-3xl font-bold mb-6">Let's Connect</h2>
+          <p className="text-xl text-gray-600 mb-8">
+            I'm always interested in hearing about new projects and opportunities.
+          </p>
+          <a 
+            href="mailto:balino_dexter@yahoo.com" 
+            className="bg-black text-white px-8 py-3 rounded-lg hover:bg-gray-800 transition inline-block"
+          >
+            Get in Touch
+          </a>
+        </div>
+      </section>
     </main>
   );
 }
