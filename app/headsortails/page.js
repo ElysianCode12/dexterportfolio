@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { useState } from "react";
 import Navbar from "../nav-bar/navbar";
 
@@ -43,7 +44,7 @@ export default function Page() {
                 <h1 className="text-4xl font-bold mb-4">Heads Or Tails Game</h1>
 
                 <div>
-                    <img src="coin.jpg" className="w-40 h-auto rounded-lg mb-5"></img>
+                    <Image src="/coin.jpg" alt="Coin" width={160} height={160} className="w-40 h-auto rounded-lg mb-5" />
                 </div>
 
                 <div className="flex items-center mb-4">

@@ -448,7 +448,7 @@ export default function BlackjackGame() {
 
                         {/* Game Over Message */}
                         <div className="text-center">
-                            <p className="text-yellow-400 text-2xl font-bold">Push! It's a Tie!</p>
+                            <p className="text-yellow-400 text-2xl font-bold">Push! It&apos;s a Tie!</p>
                             <button 
                                 onClick={startGame}
                                 className="mt-4 bg-yellow-600 hover:bg-yellow-700 text-white font-bold py-3 px-6 rounded-lg"

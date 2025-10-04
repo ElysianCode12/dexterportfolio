@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import Navbar from "../nav-bar/navbar";
@@ -39,7 +40,7 @@ export default function Page() {
                             <p>Powered by Wikipedia API</p>
                         </div>
                         <div>
-                            <img src="Wikipedia-logo-v2.svg" className="w-36 h-auto rounded-full"></img>
+                            <Image src="/Wikipedia-logo-v2.svg" alt="Wikipedia logo" width={144} height={144} className="w-36 h-auto rounded-full" />
                         </div>
                     </div>
                 </div>

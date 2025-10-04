@@ -1,4 +1,5 @@
 import React from 'react';
+import Image from 'next/image';
 import './navbar.css';
 import Link from 'next/link';
 
@@ -17,10 +18,10 @@ const Navbar = () => {
             
             <div className="navbar-right">
                 <a href="https://www.linkedin.com/in/dexterbalino/" className="linkedin-icon">
-                    <img src="/linkedin.png" alt="LinkedIn" />
+                    <Image src="/linkedin.png" alt="LinkedIn" width={24} height={24} />
                 </a>
                 <a href="https://github.com/ElysianCode12" className="github-icon">
-                    <img src="/github.png" alt="GitHub" />
+                    <Image src="/github.png" alt="GitHub" width={24} height={24} />
                 </a>
             </div>
         </nav>

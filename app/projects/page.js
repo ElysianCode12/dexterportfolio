@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import Navbar from "../nav-bar/navbar";
 
 export default function Projects() {
@@ -60,9 +61,11 @@ export default function Projects() {
                         <div key={index} className="bg-white rounded-xl shadow-lg overflow-hidden">
                             <div className="md:flex">
                                 <div className="md:w-1/3">
-                                    <img 
+                                    <Image 
                                         src={project.image} 
                                         alt={project.title}
+                                        width={400}
+                                        height={256}
                                         className="w-full h-64 object-cover"
                                     />
                                 </div>
