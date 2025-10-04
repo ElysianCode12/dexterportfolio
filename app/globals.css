@@ -31,3 +31,34 @@ body {
     text-wrap: balance;
   }
 }
+
+/* Card dealing animations */
+@keyframes slideIn {
+  0% {
+    opacity: 0;
+    transform: translateY(-50px) scale(0.8);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes dealCard {
+  0% {
+    opacity: 0;
+    transform: translateX(-100px) rotate(-10deg);
+  }
+  50% {
+    opacity: 0.7;
+    transform: translateX(-50px) rotate(-5deg);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0) rotate(0deg);
+  }
+}
+
+.animate-deal {
+  animation: dealCard 0.4s ease-out;
+}

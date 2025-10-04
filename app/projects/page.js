@@ -6,6 +6,21 @@ import Navbar from "../nav-bar/navbar";
 export default function Projects() {
     const projects = [
         {
+            title: "Blackjack Game",
+            description: "A fully functional blackjack card game with betting system, dealer AI, and complete game logic. Features realistic card dealing, hand value calculation, and win/lose conditions.",
+            image: "/blackjack.png",
+            link: "/games/blackjack",
+            technologies: ["React", "Next.js", "Tailwind CSS", "JavaScript"],
+            features: [
+                "Complete blackjack game logic",
+                "Interactive betting system",
+                "Dealer AI with hit/stand rules",
+                "Card visualization with suits",
+                "Money management system",
+                "Blackjack detection"
+            ]
+        },
+        {
             title: "Heads or Tails Game",
             description: "An interactive betting game where users can test their luck by betting on coin flips. Built with React and features state management for tracking scores and money.",
             image: "/coin.jpg",
