@@ -1,9 +1,4 @@
 {
-  "functions": {
-    "app/**": {
-      "runtime": "nodejs22.x"
-    }
-  },
   "buildCommand": "npm run build",
   "outputDirectory": ".next"
 }
