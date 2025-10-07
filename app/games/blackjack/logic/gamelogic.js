@@ -8,6 +8,7 @@ export const GAME_STATES = {
     DEALER_TURN: 'dealer-turn',
     PLAYER_BLACKJACK: 'player-blackjack',
     PLAYER_BUST: 'player-bust',
+    PLAYER_CHARLIE: 'player-charlie',
     DEALER_BUST: 'dealer-bust',
     DEALER_WINS: 'dealer-wins',
     PLAYER_WINS: 'player-wins',
@@ -83,10 +84,12 @@ export function hitCard(index, deck, playerHand) {
 /**
  * Calculates the optimal value of a blackjack hand
  * Handles aces as 1 or 11 to get closest to 21 without busting
+ * Returns special value -1 for 5-card charlie (only for players, not dealers)
  * @param {Array} hand - Array of card objects
- * @returns {number} Hand value (1-21, or >21 if bust)
+ * @param {boolean} isDealer - Whether this is a dealer hand (no 5-card charlie)
+ * @returns {number} Hand value (1-21, or >21 if bust, or -1 for 5-card charlie)
  */
-export function calculateHandValue(hand) {
+export function calculateHandValue(hand, isDealer = false) {
     let value = 0;
     let aces = 0;
     
@@ -110,6 +113,12 @@ export function calculateHandValue(hand) {
         }
     }
     
+    // Check for 5-card charlie only if not busted and not dealer
+    if (!isDealer && hand.length >= 5 && value <= 21) {
+        return -1; // Special value for 5-card charlie
+    }
+    
+    // For dealers, never return 5-card charlie, just return the actual value
     return value;
 }
 
@@ -141,11 +150,19 @@ export function checkPlayerBlackjack(playerHand) {
 }
 
 /**
- * Determines if player busted and returns appropriate game state
+ * Determines if player busted or has 5-card charlie and returns appropriate game state
  * @param {Array} playerHand - Player's current hand
  * @returns {string|null} Game state or null
  */
 export function checkPlayerBust(playerHand) {
+    const handValue = calculateHandValue(playerHand);
+    
+    // Check for 5-card charlie first
+    if (handValue === -1) {
+        return GAME_STATES.PLAYER_CHARLIE;
+    }
+    
+    // Check for bust
     return isBust(playerHand) ? GAME_STATES.PLAYER_BUST : null;
 }
 
@@ -161,7 +178,7 @@ export function playDealerTurn(deckIndex, deck, dealerHand) {
     let hand = [...dealerHand];
     
     // Dealer must hit until 17 or bust
-    while (calculateHandValue(hand) < 17) {
+    while (calculateHandValue(hand, true) < 17) {
         hand.push(deck[currentIndex]);
         currentIndex++;
     }
@@ -177,7 +194,7 @@ export function playDealerTurn(deckIndex, deck, dealerHand) {
  */
 export function determineWinner(playerHand, dealerHand) {
     const playerValue = calculateHandValue(playerHand);
-    const dealerValue = calculateHandValue(dealerHand);
+    const dealerValue = calculateHandValue(dealerHand, true);
     
     if (dealerValue > 21) {
         return GAME_STATES.DEALER_BUST;
@@ -187,6 +204,34 @@ export function determineWinner(playerHand, dealerHand) {
         return GAME_STATES.PLAYER_WINS;
     } else {
         return GAME_STATES.PUSH;
+    }
+}
+
+/**
+ * Calculates chip payout based on game outcome and bet amount
+ * @param {string} gameState - Final game state
+ * @param {number} betAmount - Amount wagered
+ * @returns {number} Chip change (positive for wins, negative for losses, 0 for push)
+ */
+export function calculateChipChange(gameState, betAmount) {
+    switch (gameState) {
+        case GAME_STATES.PLAYER_BLACKJACK:
+            // Blackjack pays 2.5x bet
+            return Math.floor(betAmount * 2.5);
+        case GAME_STATES.PLAYER_WINS:
+        case GAME_STATES.DEALER_BUST:
+        case GAME_STATES.PLAYER_CHARLIE:
+            // Regular win pays 1:1
+            return betAmount;
+        case GAME_STATES.PLAYER_BUST:
+        case GAME_STATES.DEALER_WINS:
+            // Loss loses the bet
+            return -betAmount;
+        case GAME_STATES.PUSH:
+            // Push returns the bet
+            return 0;
+        default:
+            return 0;
     }
 }
 
