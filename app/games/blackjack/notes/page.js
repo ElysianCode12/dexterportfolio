@@ -6,21 +6,21 @@ import Link from "next/link";
 export default function PatchNotesPage() {
     const patchNotes = [
         {
-            version: "v1.0.0",
-            date: "October 4, 2025",
-            changes: [
-                "Initial release, took me 2 days to make",
-                "So many states, probably need redux?",
-                "I thought it would be a lot simpler than it is, or maybe I just want too much"
-            ]
-        },
-        {
             version: "v1.2.0",
             date: "October 6, 2025",
             changes: [
                 "Added 5-card charlie",
                 "Added betting system",
                 "Idk what I'm doing",
+            ]
+        },
+        {
+            version: "v1.0.0",
+            date: "October 4, 2025",
+            changes: [
+                "Initial release, took me 2 days to make",
+                "So many states, probably need redux?",
+                "I thought it would be a lot simpler than it is, or maybe I just want too much"
             ]
         },
     ];
